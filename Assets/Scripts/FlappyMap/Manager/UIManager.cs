@@ -2,24 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreTxt;
-    public TextMeshProUGUI restartTxt;
+    public TextMeshProUGUI mainTxt;
+    public Image help;
     void Start()
     {
-        if (restartTxt == null)
+        if (mainTxt == null)
             Debug.LogError("restart text is null");
         if (scoreTxt == null)
             Debug.LogError("score text is null");
+        if (help == null)
+            Debug.LogError("Help Image is null");
 
-        restartTxt.gameObject.SetActive(false);
+        help.gameObject.SetActive(true);
+        mainTxt.gameObject.SetActive(false);
     }
 
-    public void SetRestart()
+    public void SetEnd()
     {
-        restartTxt.gameObject.SetActive(true);
+        mainTxt.gameObject.SetActive(true);
     }
 
     public void UpdateScore(int score)

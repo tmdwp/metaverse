@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        uiManager.SetRestart();
+        uiManager.SetEnd();
     }
 
     public void EndGame()
