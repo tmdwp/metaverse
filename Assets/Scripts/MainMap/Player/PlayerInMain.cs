@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 enum direction
@@ -12,8 +13,10 @@ public class PlayerInMain : MonoBehaviour
     Vector3 move;
     SpriteRenderer spriteRenderer;
     Rigidbody2D _rigidbody;
+ 
+
     public Sprite[] sprite = new Sprite[4];
-    public float speed = 10f;
+    public float speed = 3f;
 
     // Update is called once per frame
 
@@ -21,7 +24,7 @@ public class PlayerInMain : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody = GetComponent<Rigidbody2D>();
-
+   
         if(spriteRenderer == null)
         {
             Debug.LogError("Not Founded SpriteRenderer");
