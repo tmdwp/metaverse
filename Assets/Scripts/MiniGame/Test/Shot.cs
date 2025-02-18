@@ -7,8 +7,11 @@ public class Shot : MonoBehaviour
     public float moveSpeed = 5f;
     Rigidbody _rigidbody;
     Animator animator;
+    GunAct gun;
+
     void Start()
     {
+        gun = GetComponentInChildren<GunAct>();
         animator = GetComponentInChildren<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
         if (_rigidbody == null)
@@ -39,6 +42,7 @@ public class Shot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("Shot");
+            gun.ShootBullet();
         }
     }
 }
