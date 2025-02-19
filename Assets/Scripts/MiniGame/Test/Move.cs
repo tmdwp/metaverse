@@ -22,4 +22,9 @@ public class Move : MonoBehaviour
         velocity.z = -speed;
         _rigidbody.velocity = velocity;
     }
+
+    public void die()
+    {
+        Destroy(gameObject);
+    }
 }

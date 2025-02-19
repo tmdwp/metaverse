@@ -31,7 +31,7 @@ public class Bullet : MonoBehaviour
         Move enemy = other.GetComponent<Move>();
         if(enemy != null) 
         {
-            other.gameObject.SetActive(false);
+            enemy.die(); 
             Destroy(gameObject);
         }
     }
