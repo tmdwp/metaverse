@@ -14,8 +14,6 @@ public class PlayerInFlappy : MonoBehaviour
 
     bool isFlap = false;
 
-    public bool godMode = false;
-
     public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
@@ -75,8 +73,6 @@ public class PlayerInFlappy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (godMode) return;
-
         if (isDead) return;
 
         isDead = true;

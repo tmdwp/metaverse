@@ -6,7 +6,8 @@ using UnityEngine.UIElements;
 
 enum MinGame
 {
-    Flappy
+    Flappy,
+    GhostHunt
 }
 
 public class Minigame : MonoBehaviour
@@ -14,16 +15,17 @@ public class Minigame : MonoBehaviour
     public int minigameNm; //미니게임 구분
     bool colli = false; // 일점 벙위 내 플레이어 있는지 확인
 
-    List<string> minigame = new List<string>
+    List<string> minigame = new List<string>();
+    private void Start()
     {
-        "Flappy"
-    };
-
+        minigame.Add("Flappy");
+        minigame.Add("GhostHunt");
+    }
     private void Update()
     {
         if (colli)
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 SceneManager.LoadScene(minigame[minigameNm]);
             }

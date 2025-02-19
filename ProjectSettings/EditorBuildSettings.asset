@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Flappy.unity
     guid: 87d5664b80004d143bf29b46c0385b77
   - enabled: 1
-    path: Assets/Scenes/MiniGame2.unity
+    path: Assets/Scenes/GhostHunt.unity
     guid: 9497c72be832ad2479ced90d4d9cfa6b
   m_configObjects: {}

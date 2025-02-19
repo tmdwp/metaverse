@@ -14,7 +14,7 @@ public class Interaction : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && colli)
+        if (Input.GetKeyDown(KeyCode.Space) && colli)
         {
             if (!animator.GetBool("Act"))
                 animator.SetBool("Act", true);

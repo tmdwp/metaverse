@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
@@ -7,7 +8,9 @@ public class ScoreManager : MonoBehaviour
     static ScoreManager scoreManager;
     public static ScoreManager Instance { get { return scoreManager; } }
 
-    public int flappyScore = 0;
+    public float flappyScore = 0;
+    public float ghostScore = 0;
+
     private void Awake()
     {
         if(scoreManager != null && scoreManager != this)
@@ -17,21 +20,41 @@ public class ScoreManager : MonoBehaviour
         }
         scoreManager = this;
         DontDestroyOnLoad(gameObject);
-    }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (PlayerPrefs.HasKey("FlappyScore"))
+        {
+            flappyScore = PlayerPrefs.GetFloat("FlappyScore");
+        }
+        if (PlayerPrefs.HasKey("GhostScore"))
+        {
+            ghostScore = PlayerPrefs.GetFloat("GhostScore");
+        }
     }
 
     public void GetFlappyTop(int score)
     {
-        if(flappyScore < score)
+        if (flappyScore < score)
+        {
             flappyScore = score;
+            PlayerPrefs.SetFloat("FlappyScore", flappyScore);
+        }
+    }
+
+    public void GetGhostHunt(float score)
+    {
+        if (ghostScore < score)
+        {
+            ghostScore = score;
+            PlayerPrefs.SetFloat("GhostScore", ghostScore);
+        }
+    }
+
+    public int SetFlappyScore()
+    {   
+        return (int)flappyScore;
+    }
+    public int SetHuntScore()
+    {
+        return (int)ghostScore;
     }
 }
