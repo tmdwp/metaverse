@@ -4,30 +4,28 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+
+//Ghost Hunt 미니게임의 UIManager
 public class UiHunt : MonoBehaviour
 {
     public TextMeshProUGUI scoreTxt;
-    public TextMeshProUGUI mainTxt;
-//    public Image help;
+    public TextMeshProUGUI EndTxt;
+
     void Start()
     {
-        if (mainTxt == null)
+        if (EndTxt == null)
             Debug.LogError("restart text is null");
         if (scoreTxt == null)
             Debug.LogError("score text is null");
- //       if (help == null)
- //           Debug.LogError("Help Image is null");
-
- //       help.gameObject.SetActive(true);
-        mainTxt.gameObject.SetActive(false);
+        EndTxt.gameObject.SetActive(false);
     }
 
-    public void SetEnd()
+    public void SetEnd() //게임 오버 텍스트 활성화
     {
-        mainTxt.gameObject.SetActive(true);
+        EndTxt.gameObject.SetActive(true);
     }
 
-    public void UpdateScore(float score)
+    public void UpdateScore(float score) // 현재 점수 갱신
     {
         scoreTxt.text = score.ToString("F0");
     }

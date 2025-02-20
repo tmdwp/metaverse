@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//배경 및 장애물 위치 변경
 public class BgLooper : MonoBehaviour
 {
     public int numBgCount = 5;
@@ -9,7 +10,7 @@ public class BgLooper : MonoBehaviour
     public Vector3 obstacleLastPosition = Vector3.zero;
 
 
-    void Start()
+    void Start() //장애물 재배치
     {
         Obstacle[] obstacles = GameObject.FindObjectsOfType<Obstacle>();
         obstacleLastPosition = obstacles[0].transform.position;
@@ -21,7 +22,7 @@ public class BgLooper : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //배경 및 장애물과 충돌 시 대상 위치 재배치
     {
         if (collision.CompareTag("Background"))
         {

@@ -8,6 +8,8 @@ enum direction
     Up, Down, Left, Right
 }
 
+
+//메인에서의 플레이어 조작
 public class PlayerInMain : MonoBehaviour
 {
     Vector3 move;
@@ -36,6 +38,7 @@ public class PlayerInMain : MonoBehaviour
     }
     void Update()
     {
+        //플레이어 이동
         Vector3 velocity = _rigidbody.velocity;
         velocity.x = 0;
         velocity.y = 0;

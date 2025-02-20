@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+//Flappy Bird의 UI매니저
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreTxt;
@@ -22,12 +23,12 @@ public class UIManager : MonoBehaviour
         mainTxt.gameObject.SetActive(false);
     }
 
-    public void SetEnd()
+    public void SetEnd() //패배 Text 활성화
     {
         mainTxt.gameObject.SetActive(true);
     }
 
-    public void UpdateScore(int score)
+    public void UpdateScore(int score) //표시되는 점수 갱신
     {
         scoreTxt.text = score.ToString();
     }

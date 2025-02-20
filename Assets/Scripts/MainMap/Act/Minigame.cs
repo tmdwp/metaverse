@@ -17,35 +17,35 @@ public class Minigame : MonoBehaviour
 
     List<string> minigame = new List<string>();
     private void Start()
-    {
+    { //미니게임 씬 이름 저장
         minigame.Add("Flappy");
         minigame.Add("GhostHunt");
     }
     private void Update()
     {
-        if (colli)
+        if (colli) // 일정 범위 내 접근 시
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)) // 상호작용하면
             {
-                SceneManager.LoadScene(minigame[minigameNm]);
+                SceneManager.LoadScene(minigame[minigameNm]); // 미니게임 시작
             }
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) // 플레이어가 일정 범위내 접근 시
     {
         PlayerInMain player = collision.GetComponent<PlayerInMain>();
-        if (player != null) 
+        if (player != null)  
         {
-            colli = true;
+            colli = true; //충돌 여부 true 
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision) // 플레이어가 멀어졌다면
     {
         PlayerInMain player = collision.GetComponent<PlayerInMain>();
         if (player != null)
         {
-            colli = false;
+            colli = false; //충돌 여부 false
         }
     }
 

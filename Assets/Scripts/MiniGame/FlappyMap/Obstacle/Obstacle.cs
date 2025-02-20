@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
+//Flappy Bird의 장애물
 public class Obstacle : MonoBehaviour
 {
     public float highPosY = 1f;
@@ -21,7 +22,7 @@ public class Obstacle : MonoBehaviour
     private void Start()
     {
     }
-    public Vector3 SetRandomPlace(Vector3 lastPosition, int obtacleCount)
+    public Vector3 SetRandomPlace(Vector3 lastPosition, int obtacleCount) //일정 범위의 무작위 위치 전달
     {
         float holeSize = Random.Range(holeSizeMin, holeSizeMax);
         float halfHoleSize = holeSize / 2;
@@ -37,7 +38,7 @@ public class Obstacle : MonoBehaviour
         return placePosition;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision) //플레이어가 일정 영역을 벗어났을 경우 점수 증가
     {
         PlayerInFlappy player = collision.GetComponent<PlayerInFlappy>();
 

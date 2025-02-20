@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+//Ghost 관리
+public class Ghost : MonoBehaviour
 {
     float speed = 10f;
     Rigidbody _rigidbody;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -15,15 +16,15 @@ public class Move : MonoBehaviour
             Debug.LogError("Not found RigidBody2D");
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    void Update() // 전진
     {
         Vector3 velocity = _rigidbody.velocity;
         velocity.z = -speed;
         _rigidbody.velocity = velocity;
     }
 
-    public void die()
+    public void die() //사망 시 오브젝트 삭제
     {
         Destroy(gameObject);
     }
